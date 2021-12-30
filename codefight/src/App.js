@@ -8,20 +8,18 @@ import Codebody from "./components/codebody/codebody";
 import {initializeApp} from "firebase/app";
 import {getDatabase} from "firebase/database";
 import firebaseConfig from './firebase';
-import {getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged} from "firebase/auth";
+import {getAuth, onAuthStateChanged} from "firebase/auth";
 import { useEffect, useState } from 'react';
 import SignIn from './components/signin/signin';
 
 const firebase_app = initializeApp(firebaseConfig);
 const db = getDatabase(firebase_app);
+const auth = getAuth();
 
 function App() {
   const [userState, setUserState] = useState(false);
 
-  useEffect(() => {
-    const provider = new GoogleAuthProvider();
-    const auth = getAuth();
-    
+  useEffect(() => {    
     onAuthStateChanged(auth, (user) => {
       if (user) {
         setUserState(true)
@@ -32,18 +30,14 @@ function App() {
   }, []);
 
   /** logged in? */
-  if (userState) {
-    return (
-      <div className="page-container box">
-        <div className="app-body box">
-          <Codebody/>
-        </div>
+  return (
+    <div className="page-container box">
+      <div className="app-body box">
+        {userState ? (<Codebody/>) : (<SignIn/>)}
       </div>
-    );
-  } else {
-    return <SignIn/>;
-  }
+    </div>
+  );
 }
 
-export {firebase_app, db};
+export {firebase_app, db, auth};
 export default App;

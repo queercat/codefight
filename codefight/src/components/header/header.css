@@ -9,4 +9,14 @@
 
 .logout-button {
     margin-left: auto;
+    background: #f14e4e;
+}
+
+.header-item {
+    margin-right: 1vmin;
+    padding: 1vmin, 2vmin;
+}
+
+.color-header {
+    color: #f14e4e;
 }
