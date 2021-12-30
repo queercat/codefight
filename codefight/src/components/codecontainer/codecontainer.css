@@ -27,4 +27,8 @@
     color: white;
 
     transition: .3s;
+
+    -moz-tab-size : 4;
+      -o-tab-size : 4;
+         tab-size : 4;
 }
