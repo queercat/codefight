@@ -1,4 +1,5 @@
 import CodeContainer from '../codecontainer/codecontainer';
+import Header from '../header/header';
 import './codebody.css'
 
 function Codebody() {
@@ -14,6 +15,8 @@ Tree:
 `
     return (
         <div className="code-field-container box">
+            <Header></Header>
+            
             <div className="code-body box">
                 <CodeContainer/>
                 <div className="code-info">
