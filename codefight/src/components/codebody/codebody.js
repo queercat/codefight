@@ -12,7 +12,6 @@ Tree:
     -> left : Tree()
     -> right : Tree()
 `
-
     return (
         <div className="code-field-container box">
             <div className="code-body box">
